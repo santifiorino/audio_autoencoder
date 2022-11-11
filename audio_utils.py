@@ -51,7 +51,7 @@ def load_training_audio(path, win_length, hop_length, Sclip, target_sr, duration
     y = []
     phases = []
     for i, filename in enumerate(glob(path)):
-        phase, S = get_specgram(path, win_length, hop_length, Sclip, target_sr, duration)
+        phase, S = get_specgram(filename, win_length, hop_length, Sclip, target_sr, duration)
         phases.append(phase)
         X.append(S)
         y.append(torch.ones(S.shape[0]) * i)
